@@ -24,7 +24,7 @@ if [ ! -f "$EXAMPLE_PATH/Makefile" ]; then
 fi
 
 echo "Building example in: $EXAMPLE_PATH"
-docker run --rm -v "$(pwd)/$EXAMPLE_PATH":/project -w /project devkitpro/devkitarm make
+docker run --rm -v "$(pwd)/${EXAMPLE_PATH}":/project -w /project devkitpro/devkitarm make
 
 echo ""
 echo "Build complete! Output files:"
