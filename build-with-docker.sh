@@ -26,6 +26,16 @@ fi
 echo "Building example in: $EXAMPLE_PATH"
 docker run --rm -v "$(pwd)/${EXAMPLE_PATH}":/project -w /project devkitpro/devkitarm make
 
-echo ""
-echo "Build complete! Output files:"
-ls -lh "$EXAMPLE_PATH"/*.3dsx 2>/dev/null || echo "No .3dsx files found"
+# Create build-outputs directory if it doesn't exist
+mkdir -p build-outputs
+
+# Copy output files to build-outputs folder
+EXAMPLE_NAME=$(basename "$EXAMPLE_PATH")
+if ls "$EXAMPLE_PATH"/*.3dsx 1> /dev/null 2>&1; then
+    cp -v "$EXAMPLE_PATH"/*.3dsx "build-outputs/${EXAMPLE_NAME}.3dsx"
+    echo ""
+    echo "Build complete! Output copied to: build-outputs/${EXAMPLE_NAME}.3dsx"
+    ls -lh "build-outputs/${EXAMPLE_NAME}.3dsx"
+else
+    echo "No .3dsx files found"
+fi

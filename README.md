@@ -18,7 +18,7 @@ For example, to build the hello-world example:
 ./build-with-docker.sh graphics/printing/hello-world
 ```
 
-This will produce a `.3dsx` file that can be run on a Nintendo 3DS with homebrew capabilities.
+This will produce a `.3dsx` file that can be run on a Nintendo 3DS with homebrew capabilities. The output file will be copied to the `build-outputs/` folder in the repository for easy access.
 
 ### Using Native devkitARM
 
