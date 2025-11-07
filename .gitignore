@@ -8,3 +8,7 @@ lib/
 *.t3x
 *.bcfnt
 *~
+
+# Allow build outputs in the build-outputs folder
+!build-outputs/
+!build-outputs/*.3dsx
